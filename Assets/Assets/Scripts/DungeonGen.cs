@@ -24,6 +24,8 @@ public class DungeonGen : MonoBehaviour {
         public Map(int xmax, int ymax, int steps, string type = "Dungeon")
         {
             Random rand = new Random();
+            accessMap = new List<List<int>>();
+            IntMap = new List<List<int>>();
 
             #region Create the map
             for (int i = 0; i < xmax; i++)
