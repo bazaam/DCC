@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+//test
 
 
 public class LevelController : MonoBehaviour {
@@ -20,14 +21,14 @@ public class LevelController : MonoBehaviour {
 
     public void NewLevel()
     {
-        Dungeonizer dungeonizer = GetComponent<Dungeonizer>();
+        //Dungeonizer dungeonizer = GetComponent<Dungeonizer>();
 
-        dungeonizer.ClearOldDungeon();
-        dungeonizer.Generate();
+        //dungeonizer.ClearOldDungeon();
+        //dungeonizer.Generate();
 
-        StartCoroutine(Respawn());
-        Debug.Log("Locating Player");
-        //DungeonGenLibrary.Tile t;
+        //StartCoroutine(Respawn());
+        //Debug.Log("Locating Player");
+        ////DungeonGenLibrary.Tile t;
         
 
 
