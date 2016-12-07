@@ -153,7 +153,7 @@ public class DungeonGen : MonoBehaviour {
                             {
                                 for (int l = 0; l < 6; l++)
                                 {
-                                    this.tLList[nextCoord.x][nextCoord.y].isWall = false;
+                                    this.tLList[nextCoord.x+k][nextCoord.y+l].isWall = false;
                                 }
                             }
                         }
