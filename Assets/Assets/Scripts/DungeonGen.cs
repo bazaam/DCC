@@ -29,7 +29,7 @@ public class DungeonGen : MonoBehaviour {
             accessMap = new List<List<int>>();
             IntMap = new List<List<int>>();
 
-            #region Create the map
+            #region Create the bare map
             for (int i = 0; i < xmax; i++)
             {
                 List<Tile> tempList = new List<Tile>();
@@ -49,25 +49,15 @@ public class DungeonGen : MonoBehaviour {
             }
             #endregion
 
-            #region Initialize pathways
-            //if (type == "Cave") { InitCave(xmax, ymax, steps); }
-            //else if (type == "Dungeon") { InitDungeon(xmax, ymax, steps); }
-            //else if (type == "Test") { }
+            //Initialize pathways
             InitDungeon(xmax, ymax, steps);
-            #endregion
-
-            #region Create Display
-            //visMap = new DMMap(this);
-
-            #endregion
+                        
 
             #region Track Open Space
 
             List<Tile> flatList = new List<Tile>();
-            //foreach (List<Tile> tList in tLList)
             for (int i = 0; i < xmax; i++)
             {
-                //foreach (Tile t in tList)
                 for (int j = 0; j < ymax; j++)
                 {
                     flatList.Add(tLList[i][j]);
@@ -78,7 +68,7 @@ public class DungeonGen : MonoBehaviour {
 
             #endregion
 
-            #region GenerateAccessibleMap
+            #region Generate Accessible Map
 
             IntMap = accessMap;
             IntMap[(int)entry.x][(int)entry.y] = -1;
@@ -88,9 +78,7 @@ public class DungeonGen : MonoBehaviour {
 
         }
 
-        //public List<List<int>> IntMap { get { return accessMap; } }
-
-        #region Different methods for generating the map
+        #region Methods for generating the map
         //internal void InitCave(int xmax, int ymax, int steps)
         //{
         //    Random rand = new Random();
@@ -142,11 +130,10 @@ public class DungeonGen : MonoBehaviour {
                 //nextCoord.x = nextCoord.x + direction[0];
                 //nextCoord.y = nextCoord.y + direction[1];
                 this.tLList[nextCoord.x][nextCoord.y].isWall = false;
-                //if (accessMap[nextCoord.x][nextCoord.y] == 0)
-                //{
+                
 
-                //}
 
+                //Generate rooms
                 if (rand.Next(0, 100) > 85)
                 {
                     if (nextCoord.x > 10 || nextCoord.x < xmax - 10)
