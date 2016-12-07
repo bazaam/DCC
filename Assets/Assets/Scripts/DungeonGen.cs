@@ -142,6 +142,10 @@ public class DungeonGen : MonoBehaviour {
                 //nextCoord.x = nextCoord.x + direction[0];
                 //nextCoord.y = nextCoord.y + direction[1];
                 this.tLList[nextCoord.x][nextCoord.y].isWall = false;
+                //if (accessMap[nextCoord.x][nextCoord.y] == 0)
+                //{
+
+                //}
 
                 if (rand.Next(0, 100) > 85)
                 {
@@ -154,6 +158,7 @@ public class DungeonGen : MonoBehaviour {
                                 for (int l = -1; l < 2; l++)
                                 {
                                     this.tLList[nextCoord.x+k][nextCoord.y+l].isWall = false;
+                                    accessMap[nextCoord.x][nextCoord.y] = 2;
                                 }
                             }
                         }
