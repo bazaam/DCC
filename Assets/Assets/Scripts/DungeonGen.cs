@@ -118,7 +118,7 @@ public class DungeonGen : MonoBehaviour {
 
             for (int i = 0; i < steps; i++)
             {
-                int temp = rand.Next(1, 11);
+                int temp = rand.Next(1, 101);
                 int[] dirModX = { 0, 3 };
                 int[] dirModY = { 0, 3 };
                 if (nextCoord.x == 1) { dirModX[0] = 1; }
@@ -129,7 +129,7 @@ public class DungeonGen : MonoBehaviour {
                 else { dirModY[0] = 0; dirModY[1] = 3; }
 
 
-                if (temp >= 8)
+                if (temp >= 90)
                 {
                     direction[0] = directionHelper[rand.Next(dirModX[0], dirModX[1])];
                     direction[1] = directionHelper[rand.Next(dirModY[0], dirModY[1])];
