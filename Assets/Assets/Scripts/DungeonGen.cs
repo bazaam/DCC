@@ -143,7 +143,7 @@ public class DungeonGen : MonoBehaviour {
                 //nextCoord.y = nextCoord.y + direction[1];
                 this.tLList[nextCoord.x][nextCoord.y].isWall = false;
 
-                if (rand.Next(0, 100) > 80)
+                if (rand.Next(0, 100) > 70)
                 {
                     if (nextCoord.x < 6 || nextCoord.x > xmax - 7)
                     {
