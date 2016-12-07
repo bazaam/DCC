@@ -14,7 +14,7 @@ public class DungeonGenerator : MonoBehaviour
     public void SpawnDungeon()
     {
 
-        levelMap = dungeonMap.IntMap;
+        levelMap = dungeonMap.accessMap;
         int x = 0;
         int y = 0;
 
@@ -27,6 +27,7 @@ public class DungeonGenerator : MonoBehaviour
                 ++y;
             }
 
+            y = 0;
             ++x;
         }
     }
@@ -42,6 +43,8 @@ public class DungeonGenerator : MonoBehaviour
             Instantiate(wall, new Vector3(x, y, 0), Quaternion.identity);
         }
     }
+
+
 }
 
 
