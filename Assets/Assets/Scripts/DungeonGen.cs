@@ -134,6 +134,7 @@ public class DungeonGen : MonoBehaviour {
                     direction[0] = directionHelper[rand.Next(dirModX[0], dirModX[1])];
                     direction[1] = directionHelper[rand.Next(dirModY[0], dirModY[1])];
                 }
+
                 if (nextCoord.x + direction[0] < 1 || nextCoord.x + direction[0] > xmax - 2) { continue; }
                 if (nextCoord.y + direction[1] < 1 || nextCoord.y + direction[1] > ymax - 2) { continue; }
                 if (direction[0] != 0) { nextCoord.x = nextCoord.x + direction[0]; }
@@ -141,6 +142,23 @@ public class DungeonGen : MonoBehaviour {
                 //nextCoord.x = nextCoord.x + direction[0];
                 //nextCoord.y = nextCoord.y + direction[1];
                 this.tLList[nextCoord.x][nextCoord.y].isWall = false;
+
+                if (rand.Next(0, 100) > 80)
+                {
+                    if (nextCoord.x < 6 || nextCoord.x > xmax - 7)
+                    {
+                        if (nextCoord.y < 6 || nextCoord.y > ymax - 7)
+                        {
+                            for (int k = -2; k<3; k++)
+                            {
+                                for (int l = 0; l < 6; l++)
+                                {
+                                    this.tLList[nextCoord.x][nextCoord.y].isWall = false;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             exit = new Vector2((float)nextCoord.x, (float)nextCoord.y);
 
