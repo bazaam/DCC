@@ -36,11 +36,11 @@ public class DungeonGenerator : MonoBehaviour
     {
         if (tileType == 0)
         {
-            Instantiate(floor, new Vector3(x, y, 0), Quaternion.identity);
+            Instantiate(floor, new Vector3(x, 0, y), Quaternion.identity);
         }
         else if (tileType == 1)
         {
-            Instantiate(wall, new Vector3(x, y, 0), Quaternion.identity);
+            Instantiate(wall, new Vector3(x, 0, y), Quaternion.identity);
         }
     }
 
