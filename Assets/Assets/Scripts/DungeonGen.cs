@@ -81,7 +81,8 @@ public class DungeonGen : MonoBehaviour {
             #region GenerateAccessibleMap
 
             IntMap = accessMap;
-
+            IntMap[(int)entry.x][(int)entry.y] = -1;
+            IntMap[(int)exit.x][(int)exit.y] = -2;
 
             #endregion
 
@@ -142,6 +143,7 @@ public class DungeonGen : MonoBehaviour {
                 this.tLList[nextCoord.x][nextCoord.y].isWall = false;
             }
             exit = new Vector2((float)nextCoord.x, (float)nextCoord.y);
+
         }
         #endregion
 
