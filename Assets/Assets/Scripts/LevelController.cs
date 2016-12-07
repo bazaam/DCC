@@ -25,14 +25,16 @@ public class LevelController : MonoBehaviour {
 
         //dungeonizer.ClearOldDungeon();
         //dungeonizer.Generate();
-         
+
         //StartCoroutine(Respawn());
         //Debug.Log("Locating Player");
         ////DungeonGenLibrary.Tile t;
-
+        Debug.Log("new level called");
         DungeonGenerator newDungeon = gameObject.GetComponent<DungeonGenerator>();
         newDungeon.SpawnDungeon();
-        Respawn(newDungeon.GetEntryPoint());
+        Debug.Log("New dungeon spawned");
+        Vector2 spawnTile = newDungeon.GetEntryPoint();
+        
         
         
         

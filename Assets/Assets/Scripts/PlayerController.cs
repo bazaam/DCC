@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         // Store reference to attached component
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
 
         
     }
@@ -43,15 +43,14 @@ public class PlayerController : MonoBehaviour
     }
 
     
-    public void SetLocation(Vector3 newLocation)
+    public void SetLocation(Vector2 vector2)
     {
 
-        spawnPoint = GameObject.FindGameObjectWithTag("Respawn");
-
-        transform.position = spawnPoint.transform.position;
+        Vector3 newLocation = new Vector3(vector2.x, 0, vector2.y);
+        transform.position = newLocation;
 
         Debug.Log("Player set to current respawn");
-        Debug.Log(spawnPoint.transform.position);
+        
     }
 
 

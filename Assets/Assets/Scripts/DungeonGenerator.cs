@@ -13,6 +13,7 @@ public class DungeonGenerator : MonoBehaviour
     Vector2 start = new Vector2();
     Vector2 exit = new Vector2();
 
+
     public void SpawnDungeon()
     {
 
@@ -32,12 +33,19 @@ public class DungeonGenerator : MonoBehaviour
             y = 0;
             ++x;
         }
-        
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerController PlayerController = Player.GetComponent<PlayerController>();
+        Debug.Log("Player Found");
+        PlayerController.SetLocation(dungeonMap.entry);
+
     }
 
     public Vector2 GetEntryPoint()
     {
         start = dungeonMap.entry;
+        //Debug.Log("Entry Point Returned");
+        //Debug.Log(start + "is start");
+        //Debug.Log(dungeonMap.entry + "is dungeonMap.entry");
         return start;
     }
 
@@ -51,7 +59,7 @@ public class DungeonGenerator : MonoBehaviour
 
     void InstantiateDungeonTile(int x, int y, int tileType)
     {
-        if (tileType == 0 || tileType == -1 || tileType == -2)
+        if (tileType != 1)
         {
             Instantiate(floor, new Vector3(x, 0, y), Quaternion.identity);
         }
