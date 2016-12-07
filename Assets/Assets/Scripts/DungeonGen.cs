@@ -17,6 +17,8 @@ public class DungeonGen : MonoBehaviour {
         public List<Tile> openSpace = new List<Tile>();
         public List<List<int>> accessMap;
         public List<List<int>> IntMap;
+        public Vector2 entry = new Vector2();
+        public Vector2 exit = new Vector2();
         #endregion
 
         public Map() { }
@@ -107,6 +109,8 @@ public class DungeonGen : MonoBehaviour {
             System.Random rand = new System.Random();
             Coordinates startCoord = new Coordinates(rand.Next(1, xmax - 1), rand.Next(1, ymax - 1));
             Coordinates nextCoord = new Coordinates(startCoord.x, startCoord.y);
+            entry = new Vector2((float)startCoord.x, (float)startCoord.y);
+
             int[] directionHelper = { -1, 0, 1 };
             int[] direction = { directionHelper[rand.Next(0, 3)], directionHelper[rand.Next(0, 3)] };
             //nextCoord.
@@ -133,6 +137,7 @@ public class DungeonGen : MonoBehaviour {
                 nextCoord.y = nextCoord.y + direction[1];
                 this.tLList[nextCoord.x][nextCoord.y].isWall = false;
             }
+            exit = new Vector2((float)nextCoord.x, (float)nextCoord.y);
         }
         #endregion
 
