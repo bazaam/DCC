@@ -32,12 +32,15 @@ public class LevelController : MonoBehaviour {
 
         DungeonGenerator newDungeon = gameObject.GetComponent<DungeonGenerator>();
         newDungeon.SpawnDungeon();
+        Respawn(newDungeon.GetEntryPoint());
+        
+        
         
 
 
     }
 
-    IEnumerator Respawn()
+    IEnumerator Respawn(Vector2 startTile)
     {
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
         PlayerController PlayerController = Player.GetComponent<PlayerController>();
@@ -45,7 +48,7 @@ public class LevelController : MonoBehaviour {
         Debug.Log("Player Found");
 
         yield return new WaitForSeconds(.1f);
-
-        PlayerController.SetSpawn();
+        
+        PlayerController.SetLocation(startTile);
     }
 }

@@ -7,14 +7,16 @@ using System.Collections.Generic;
 public class DungeonGenerator : MonoBehaviour
 {
     List<List<int>> levelMap = new List<List<int>>();
-    DungeonGen.Map dungeonMap = new DungeonGen.Map(100, 120, 750);
+    DungeonGen.Map dungeonMap = new DungeonGen.Map(100, 120, 1000);
     public GameObject wall;
     public GameObject floor;
+    Vector2 start = new Vector2();
+    Vector2 exit = new Vector2();
 
     public void SpawnDungeon()
     {
 
-        levelMap = dungeonMap.accessMap;
+        levelMap = dungeonMap.IntMap;
         int x = 0;
         int y = 0;
 
@@ -30,11 +32,26 @@ public class DungeonGenerator : MonoBehaviour
             y = 0;
             ++x;
         }
+        
     }
+
+    public Vector2 GetEntryPoint()
+    {
+        start = dungeonMap.entry;
+        return start;
+    }
+
+    public Vector2 GetExitPoint()
+    {
+        exit = dungeonMap.exit;
+        return exit;
+    }
+
+
 
     void InstantiateDungeonTile(int x, int y, int tileType)
     {
-        if (tileType == 0)
+        if (tileType == 0 || tileType == -1 || tileType == -2)
         {
             Instantiate(floor, new Vector3(x, 0, y), Quaternion.identity);
         }

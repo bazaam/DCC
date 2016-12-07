@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     }
 
     
-    public void SetSpawn()
+    public void SetLocation(Vector3 newLocation)
     {
 
         spawnPoint = GameObject.FindGameObjectWithTag("Respawn");
