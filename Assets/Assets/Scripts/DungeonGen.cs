@@ -105,8 +105,9 @@ public class DungeonGen : MonoBehaviour {
             foreach (List<int> xls in accessMap)
             {
                 for (int j = ymaxClean + 2; j < ymax; j++) { xls.RemoveAt(ymaxClean + 2); }
-                for (int j = 0; j < yminClean; j++) { xls.RemoveAt(0); entry.y--;exit.y--; }
+                for (int j = 0; j < yminClean; j++) { xls.RemoveAt(0);  }
             }
+            for (int j = 0; j < yminClean; j++) { entry.y--; exit.y--; }
             Debug.Log("entry.x: " + entry.x);
             for (int i = 0; i < xminClean; i++)
             {
@@ -116,6 +117,24 @@ public class DungeonGen : MonoBehaviour {
             }
 
             //////Add edges back on
+            accessMap.Insert(0, new List<int>());
+            accessMap.Add(new List<int>());
+            for(int i = 0; i < accessMap[1].Count; i++)
+            {
+                accessMap[0].Add(1);
+                accessMap[accessMap.Count - 1].Add(1);
+            }
+            entry.x++;
+            exit.x++;
+            
+            foreach (List<int> xls in accessMap)
+            {
+                xls.Insert(0, 1);
+                xls.Add(1);
+            }
+            entry.y++;
+            exit.y++;
+
             //accessMap.Insert(0, new List<int>());
             //accessMap.Add(new List<int>());
             ////foreach (List<int> ls in accessMap)
@@ -131,7 +150,12 @@ public class DungeonGen : MonoBehaviour {
             #region Generate Accessible Map
 
             //Debug.Log("test");
-            Debug.Log("New entry.x: " + entry.x);
+            Debug.Log("New entry.x, y: " + entry.x + ", " + entry.y);
+
+            Debug.Log("Size:" + accessMap.Count + " " + accessMap[0].Count);
+            //Debug.Log(accessMap[(int)entry.x][(int)entry.y]);
+
+
             IntMap = accessMap;
             IntMap[(int)entry.x][(int)entry.y] = -1;
             IntMap[(int)exit.x][(int)exit.y] = -2;
@@ -139,7 +163,7 @@ public class DungeonGen : MonoBehaviour {
 
             /*
 
-
+            3: Doors
             2: Room
             1: Wall
             0: Empty Space
@@ -175,6 +199,7 @@ public class DungeonGen : MonoBehaviour {
             Coordinates startCoord = new Coordinates(rand.Next(1, xmax - 1), rand.Next(1, ymax - 1));
             Coordinates nextCoord = new Coordinates(startCoord.x, startCoord.y);
             entry = new Vector2((float)startCoord.x, (float)startCoord.y);
+            Debug.Log(startCoord.y);
 
             int[] directionHelper = { -1, 0, 1 };
             int[] direction = { directionHelper[rand.Next(0, 3)], directionHelper[rand.Next(0, 3)] };
