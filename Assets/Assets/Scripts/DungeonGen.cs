@@ -68,8 +68,70 @@ public class DungeonGen : MonoBehaviour {
 
             #endregion
 
+            #region Clean Open Space
+
+            int xminClean=500, xmaxClean=0, yminClean=500, ymaxClean=0;
+
+
+            //Find Open Space
+            for (int i = 0; i < xmax; i++)
+            {
+                for(int j = 0; j < ymax; j++)
+                {
+                    if (accessMap[i][j] != 1)
+                    {
+                        if (i < xminClean) { xminClean = i; }
+                        if (j < yminClean) yminClean = j;
+                    }
+                }
+            }
+            for (int i = xmax-1; i >= 0; i--)
+            {
+                for (int j = ymax-1; j >= 0; j--)
+                {
+                    if (accessMap[i][j] != 1)
+                    {
+                        if (i > xmaxClean) xmaxClean = i;
+                        if (j > ymaxClean) ymaxClean = j;
+                    }
+                }
+            }
+
+            //////Clear Open Space
+            for (int i = xmaxClean + 2; i < xmax; i++)
+            {
+                accessMap.RemoveAt(xmaxClean + 2);
+            }
+            foreach (List<int> xls in accessMap)
+            {
+                for (int j = ymaxClean + 2; j < ymax; j++) { xls.RemoveAt(ymaxClean + 2); }
+                for (int j = 0; j < yminClean; j++) { xls.RemoveAt(0); entry.y--;exit.y--; }
+            }
+            Debug.Log("entry.x: " + entry.x);
+            for (int i = 0; i < xminClean; i++)
+            {
+                accessMap.RemoveAt(0);
+                entry.x--;
+                exit.x--;
+            }
+
+            //////Add edges back on
+            //accessMap.Insert(0, new List<int>());
+            //accessMap.Add(new List<int>());
+            ////foreach (List<int> ls in accessMap)
+            //foreach (int i in accessMap[1]){
+            //    accessMap[0].Add(1);
+            //    accessMap[accessMap.Count - 1].Add(1);
+
+            //}
+
+
+            #endregion
+
             #region Generate Accessible Map
 
+            //Debug.Log("test");
+            Debug.Log("New entry.x: " + entry.x);
             IntMap = accessMap;
             IntMap[(int)entry.x][(int)entry.y] = -1;
             IntMap[(int)exit.x][(int)exit.y] = -2;
