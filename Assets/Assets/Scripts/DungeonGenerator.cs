@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class DungeonGenerator : MonoBehaviour
 {
+
+    
     List<List<int>> levelMap = new List<List<int>>();
     DungeonGen.Map dungeonMap = new DungeonGen.Map(100, 120, 1000);
     public GameObject wall;
