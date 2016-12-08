@@ -7,6 +7,9 @@ using System.Linq;
 
 public class LevelController : MonoBehaviour {
 
+    public int width;
+    public int height;
+    public int totalSteps;
 	// Use this for initialization
 	void Start () {
 
@@ -31,9 +34,9 @@ public class LevelController : MonoBehaviour {
         ////DungeonGenLibrary.Tile t;
         Debug.Log("new level called");
         DungeonGenerator newDungeon = gameObject.GetComponent<DungeonGenerator>();
-        newDungeon.SpawnDungeon();
+        newDungeon.NewDungeon(width, height, totalSteps);
         Debug.Log("New dungeon spawned");
-        Vector2 spawnTile = newDungeon.GetEntryPoint();
+        
         
         
         

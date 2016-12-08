@@ -9,8 +9,8 @@ public class DungeonGenerator : MonoBehaviour
 
     
     List<List<int>> levelMap = new List<List<int>>();
-    //DungeonGen.Map dungeonMap = new DungeonGen.Map(100, 120, 1000);
     DungeonGen.Map dungeonMap = new DungeonGen.Map();
+    
     public GameObject wall;
     public GameObject floor;
     public GameObject entry;
@@ -18,9 +18,10 @@ public class DungeonGenerator : MonoBehaviour
     Vector2 exit = new Vector2();
 
 
-    public void SpawnDungeon()
+    void SpawnDungeon(int a, int b, int c)
     {
-        dungeonMap = new DungeonGen.Map(100, 120, 1000);
+
+        dungeonMap = new DungeonGen.Map(a, b, c);
         levelMap = dungeonMap.IntMap;
         int x = 0;
         int y = 0;
@@ -46,20 +47,18 @@ public class DungeonGenerator : MonoBehaviour
 
     public Vector2 GetEntryPoint()
     {
-        start = dungeonMap.entry;
-        //Debug.Log("Entry Point Returned");
-        //Debug.Log(start + "is start");
-        //Debug.Log(dungeonMap.entry + "is dungeonMap.entry");
-        return start;
+        return dungeonMap.entry;
     }
 
     public Vector2 GetExitPoint()
     {
-        exit = dungeonMap.exit;
-        return exit;
+        return dungeonMap.exit;
     }
 
-
+    public void NewDungeon(int a, int b, int c)
+    {
+        SpawnDungeon(a, b, c);
+    }
 
     void InstantiateDungeonTile(int x, int y, int tileType)
     {

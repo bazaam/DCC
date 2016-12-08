@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         Vector3 newLocation = new Vector3(vector2.x, 0, vector2.y);
         transform.position = newLocation;
 
-        Debug.Log("Player set to current respawn");
+        Debug.Log("Player set to new location");
         
     }
 
