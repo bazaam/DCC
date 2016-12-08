@@ -10,6 +10,7 @@ public class DungeonGenerator : MonoBehaviour
     DungeonGen.Map dungeonMap = new DungeonGen.Map(100, 120, 1000);
     public GameObject wall;
     public GameObject floor;
+    public GameObject entry;
     Vector2 start = new Vector2();
     Vector2 exit = new Vector2();
 
@@ -59,13 +60,17 @@ public class DungeonGenerator : MonoBehaviour
 
     void InstantiateDungeonTile(int x, int y, int tileType)
     {
-        if (tileType != 1)
+        if (tileType == -1)
         {
-            Instantiate(floor, new Vector3(x, 0, y), Quaternion.identity);
+            Instantiate(entry, new Vector3(x, 0, y), Quaternion.identity);
         }
         else if (tileType == 1)
         {
             Instantiate(wall, new Vector3(x, 0, y), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(floor, new Vector3(x, 0, y), Quaternion.identity);
         }
     }
 
