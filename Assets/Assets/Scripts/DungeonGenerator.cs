@@ -9,7 +9,8 @@ public class DungeonGenerator : MonoBehaviour
 
     
     List<List<int>> levelMap = new List<List<int>>();
-    DungeonGen.Map dungeonMap = new DungeonGen.Map(100, 120, 1000);
+    //DungeonGen.Map dungeonMap = new DungeonGen.Map(100, 120, 1000);
+    DungeonGen.Map dungeonMap = new DungeonGen.Map();
     public GameObject wall;
     public GameObject floor;
     public GameObject entry;
@@ -19,7 +20,7 @@ public class DungeonGenerator : MonoBehaviour
 
     public void SpawnDungeon()
     {
-
+        dungeonMap = new DungeonGen.Map(100, 120, 1000);
         levelMap = dungeonMap.IntMap;
         int x = 0;
         int y = 0;
