@@ -136,6 +136,20 @@ public class DungeonGen : MonoBehaviour {
             IntMap[(int)entry.x][(int)entry.y] = -1;
             IntMap[(int)exit.x][(int)exit.y] = -2;
 
+
+            /*
+
+
+            2: Room
+            1: Wall
+            0: Empty Space
+            -1: Entry
+            -2: Exit
+
+
+
+            */
+
             #endregion
 
         }
