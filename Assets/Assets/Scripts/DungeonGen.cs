@@ -135,6 +135,20 @@ public class DungeonGen : MonoBehaviour {
             entry.y++;
             exit.y++;
 
+            for (int i = 0; i < accessMap.Count; i++)
+            {
+                for(int j = 0; j < accessMap[1].Count; j++)
+                {
+                    if (accessMap[i][j] == 0)
+                    {
+                        if (accessMap[i - 1][j] == 2 || accessMap[i + 1][j] == 2 || accessMap[i][j - 1] == 2 || accessMap[i][j + 1] == 2)
+                        {
+                            accessMap[i][j] = 3;
+                        }
+                    }
+                }
+            }
+
             //accessMap.Insert(0, new List<int>());
             //accessMap.Add(new List<int>());
             ////foreach (List<int> ls in accessMap)
