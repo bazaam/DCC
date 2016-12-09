@@ -30,8 +30,11 @@ public class DungeonGenerator : MonoBehaviour
         {
             foreach (int tileType in subList)
             {
-
-                InstantiateDungeonTile(x, y, tileType);
+                if (tileType != -1)
+                {
+                    InstantiateDungeonTile(x, y, tileType);
+                }
+                
                 ++y;
             }
 
@@ -62,11 +65,11 @@ public class DungeonGenerator : MonoBehaviour
 
     void InstantiateDungeonTile(int x, int y, int tileType)
     {
-        if (tileType == -1)
+        if (tileType == -3)
         {
             Instantiate(entry, new Vector3(x, 0, y), Quaternion.identity);
         }
-        else if (tileType == 1)
+        else if (tileType == 0)
         {
             Instantiate(wall, new Vector3(x, 0, y), Quaternion.identity);
         }
