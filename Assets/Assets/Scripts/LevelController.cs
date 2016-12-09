@@ -10,8 +10,8 @@ public class LevelController : MonoBehaviour {
     public int width;
     public int height;
     public int totalSteps;
-    public int roomFrequency;
-    public int roomSize;
+    public int roomFrequency = 3;
+    public int roomSize = 7;
 	// Use this for initialization
 	void Start () {
 
