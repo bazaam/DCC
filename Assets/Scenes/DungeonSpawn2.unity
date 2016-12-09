@@ -138,17 +138,17 @@ Prefab:
     - target: {fileID: 114000014038133676, guid: 45738584b814bbc4caec188a67ba3f2d,
         type: 2}
       propertyPath: width
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114000014038133676, guid: 45738584b814bbc4caec188a67ba3f2d,
         type: 2}
       propertyPath: height
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114000014038133676, guid: 45738584b814bbc4caec188a67ba3f2d,
         type: 2}
       propertyPath: totalSteps
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45738584b814bbc4caec188a67ba3f2d, type: 2}
