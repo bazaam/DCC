@@ -70,22 +70,33 @@ public class DungeonGen : MonoBehaviour {
             {
                 foreach(Tile t in ls)
                 {
+                    //if (entry.x == t.x && entry.y == t.y)
+                    //{
+                    //    Debug.Log(" " + t.x + " " + t.y);
+                    //    Debug.Log(" " + accessMap[t.x][t.y]);
+                    //}
                     if (/*t.isWall == false*/ accessMap[t.x][t.y] !=0 && accessMap[t.x][t.y]!= -1)
                     {
-                        foreach(Coordinates n in t.neighbors)
+                        //if (entry.x == t.x && entry.y == t.y)
+                        //{
+                        //    Debug.Log(" " + t.x + " " + t.y);
+                        //    Debug.Log(" " + accessMap[t.x][t.y]);
+                        //}
+                        foreach (Coordinates n in t.neighbors)
                         {
                             
                             //Debug.Log("xy: " + n.x + " " + n.y);
-                            if (entry.x == n.x && entry.y == n.y)
-                            {
-                                Debug.Log(" " + n.x + " " + n.y);
-                            }
+                            //if (entry.x == n.x && entry.y == n.y)
+                            //{
+                            //    Debug.Log(" " + n.x + " " + n.y);
+                            //}
                             if (n.x == xmax || n.y == ymax ) continue;
                             if (n.x < 0 || n.y < 0) continue;
                             tLList[n.x][n.y].Recheck(n.x, n.y, xmax, ymax);
 
                             if (tLList[n.x][n.y].isWall == true)
                             {
+                                if (n.x == entry.x && n.y == entry.y) { continue; }
                                 accessMap[n.x][n.y] = 0;
                             }
                         }
@@ -93,13 +104,7 @@ public class DungeonGen : MonoBehaviour {
                 }
             }
 
-
-
-            #region Track Open Space
-
             
-
-            #endregion
 
             #region Clean Open Space
 
@@ -294,7 +299,7 @@ public class DungeonGen : MonoBehaviour {
 
 
                 //Generate rooms
-                if (rand.Next(0, 100) > 85)
+                if (rand.Next(0, 100) > 95)
                 {
                     if (nextCoord.x > 10 || nextCoord.x < xmax - 10)
                     {
