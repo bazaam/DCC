@@ -63,6 +63,7 @@ public class DungeonGen : MonoBehaviour {
                 }
             }
             foreach (Tile t in flatList.Where(z => !z.isWall)) { openSpace.Add(t); }
+            accessMap[(int)entry.x][(int)entry.y] = -3;
 
             //Generate Walls
             foreach (List<Tile> ls in tLList)
@@ -73,10 +74,16 @@ public class DungeonGen : MonoBehaviour {
                     {
                         foreach(Coordinates n in t.neighbors)
                         {
+                            
                             //Debug.Log("xy: " + n.x + " " + n.y);
+                            if (entry.x == n.x && entry.y == n.y)
+                            {
+                                Debug.Log(" " + n.x + " " + n.y);
+                            }
                             if (n.x == xmax || n.y == ymax ) continue;
                             if (n.x < 0 || n.y < 0) continue;
-                            
+                            tLList[n.x][n.y].Recheck(n.x, n.y, xmax, ymax);
+
                             if (tLList[n.x][n.y].isWall == true)
                             {
                                 accessMap[n.x][n.y] = 0;
@@ -332,6 +339,19 @@ public class DungeonGen : MonoBehaviour {
             {
                 neighbors.Add(new Coordinates(x_in + direction_ops[i, 0], y_in + direction_ops[i, 1]));
             }
+            x = coord.x;
+            y = coord.y;
+        }
+
+        public void Recheck(int x_in, int y_in, int xmax, int ymax)
+        {
+            coord = new Coordinates(x_in, y_in);
+            neighbors = new List<Coordinates>();
+            for (int i = 0; i < 8; i++)
+            {
+                neighbors.Add(new Coordinates(x_in + direction_ops[i, 0], y_in + direction_ops[i, 1]));
+            }
+            //BorderCheck(xmax,ymax);
             x = coord.x;
             y = coord.y;
         }
