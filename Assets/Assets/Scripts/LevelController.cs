@@ -10,6 +10,8 @@ public class LevelController : MonoBehaviour {
     public int width;
     public int height;
     public int totalSteps;
+    public int roomFrequency;
+    public int roomSize;
 	// Use this for initialization
 	void Start () {
 
@@ -34,7 +36,7 @@ public class LevelController : MonoBehaviour {
         ////DungeonGenLibrary.Tile t;
         Debug.Log("new level called");
         DungeonGenerator newDungeon = gameObject.GetComponent<DungeonGenerator>();
-        newDungeon.NewDungeon(width, height, totalSteps);
+        newDungeon.NewDungeon(width, height, totalSteps, roomFrequency, roomSize);
         Debug.Log("New dungeon spawned");
         
         

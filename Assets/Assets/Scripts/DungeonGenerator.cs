@@ -18,10 +18,10 @@ public class DungeonGenerator : MonoBehaviour
     Vector2 exit = new Vector2();
 
 
-    void SpawnDungeon(int a, int b, int c)
+    void SpawnDungeon(int a, int b, int c, int d, int e)
     {
 
-        dungeonMap = new DungeonGen.Map(a, b, c);
+        dungeonMap = new DungeonGen.Map(a, b, c, d, e);
         levelMap = dungeonMap.IntMap;
         int x = 0;
         int y = 0;
@@ -58,9 +58,9 @@ public class DungeonGenerator : MonoBehaviour
         return dungeonMap.exit;
     }
 
-    public void NewDungeon(int a, int b, int c)
+    public void NewDungeon(int a, int b, int c, int d, int e)
     {
-        SpawnDungeon(a, b, c);
+        SpawnDungeon(a, b, c, d, e);
     }
 
     void InstantiateDungeonTile(int x, int y, int tileType)

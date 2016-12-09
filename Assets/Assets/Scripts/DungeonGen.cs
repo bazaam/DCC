@@ -23,7 +23,7 @@ public class DungeonGen : MonoBehaviour {
 
         public Map() { }
 
-        public Map(int xmax, int ymax, int steps, string type = "Dungeon")
+        public Map(int xmax, int ymax, int steps, int roomfreq = 3, int roomsize = 5, string type = "Dungeon")
         {
             Random rand = new Random();
             accessMap = new List<List<int>>();
@@ -50,7 +50,7 @@ public class DungeonGen : MonoBehaviour {
             #endregion
 
             //Initialize pathways
-            InitDungeon(xmax, ymax, steps);
+            InitDungeon(xmax, ymax, steps, roomfreq,roomsize);
 
             //Generate Blank Space
             List<Tile> flatList = new List<Tile>();
@@ -257,7 +257,7 @@ public class DungeonGen : MonoBehaviour {
         //    }
         //}
 
-        internal void InitDungeon(int xmax, int ymax, int steps)
+        internal void InitDungeon(int xmax, int ymax, int steps, int roomfreq, int roomsize)
         {
             System.Random rand = new System.Random();
             Coordinates startCoord = new Coordinates(rand.Next(1, xmax - 1), rand.Next(1, ymax - 1));
@@ -295,20 +295,24 @@ public class DungeonGen : MonoBehaviour {
                 //nextCoord.x = nextCoord.x + direction[0];
                 //nextCoord.y = nextCoord.y + direction[1];
                 this.tLList[nextCoord.x][nextCoord.y].isWall = false;
-                
 
 
+                //int size = 5;
                 //Generate rooms
-                if (rand.Next(0, 100) > 95)
+                if (rand.Next(0, 100) < roomfreq)
                 {
                     if (nextCoord.x > 10 || nextCoord.x < xmax - 10)
                     {
                         if (nextCoord.y > 10 || nextCoord.y < ymax - 10)
                         {
-                            for (int k = -1; k<2; k++)
+                            for (int k = -1*(roomsize/2); k<roomsize/2+1; k++)
                             {
-                                for (int l = -1; l < 2; l++)
+                                for (int l = -1 * (roomsize / 2); l < roomsize / 2+1; l++)
                                 {
+                                    Debug.Log((nextCoord.x + k) + " " + (nextCoord.y + l));
+                                    if(nextCoord.x+k <=0 || nextCoord.x+k>=xmax-2) { continue; }
+                                    if (nextCoord.y +l <= 0 || nextCoord.y+l >= ymax) { continue; }
+                                    Debug.Log((nextCoord.x + k) + " " + (nextCoord.y + l));
                                     this.tLList[nextCoord.x+k][nextCoord.y+l].isWall = false;
                                     accessMap[nextCoord.x][nextCoord.y] = 2;
                                 }
@@ -316,12 +320,32 @@ public class DungeonGen : MonoBehaviour {
                         }
                     }
                 }
+
             }
             exit = new Vector2((float)nextCoord.x, (float)nextCoord.y);
 
         }
         #endregion
 
+        void RoomGen(int freq, int size, int x, int y, int xmax, int ymax)
+        {
+            System.Random rand = new System.Random();
+            if (rand.Next(0,100) > freq) { return; }
+            if (x > 10 || x < xmax - 10)
+            {
+                if (y > 10 || y < ymax - 10)
+                {
+                    for (int k = -1*(size/2-1); k < size/2+1; k++)
+                    {
+                        for (int l = -1*(size/2-1); l < size/2+1; l++)
+                        {
+                            this.tLList[x + k][y + l].isWall = false;
+                            accessMap[x][y] = 2;
+                        }
+                    }
+                }
+            }
+        }
 
     }
 
