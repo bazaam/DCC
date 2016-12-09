@@ -14,8 +14,7 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject wall;
     public GameObject floor;
     public GameObject entry;
-    Vector2 start = new Vector2();
-    Vector2 exit = new Vector2();
+    
 
 
     void SpawnDungeon(int a, int b, int c, int d, int e)
