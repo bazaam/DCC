@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 //test
 
-
 public class LevelController : MonoBehaviour {
 
     public int width;
@@ -12,6 +11,10 @@ public class LevelController : MonoBehaviour {
     public int totalSteps;
     public int roomFrequency = 3;
     public int roomSize = 7;
+    public List<int> thisIsADynamicField = new List<int>();
+
+    
+
 	// Use this for initialization
 	void Start () {
 

@@ -98,6 +98,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000014038133676, guid: 45738584b814bbc4caec188a67ba3f2d,
+        type: 2}
+      propertyPath: thisIsADynamicField.Array.size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013933550012, guid: 45738584b814bbc4caec188a67ba3f2d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 142.42528
@@ -133,17 +138,17 @@ Prefab:
     - target: {fileID: 114000014038133676, guid: 45738584b814bbc4caec188a67ba3f2d,
         type: 2}
       propertyPath: width
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014038133676, guid: 45738584b814bbc4caec188a67ba3f2d,
         type: 2}
       propertyPath: height
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014038133676, guid: 45738584b814bbc4caec188a67ba3f2d,
         type: 2}
       propertyPath: totalSteps
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45738584b814bbc4caec188a67ba3f2d, type: 2}
