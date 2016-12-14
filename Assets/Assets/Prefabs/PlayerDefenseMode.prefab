@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1804717648175822}
   m_LocalRotation: {x: 0, y: 0.97154915, z: 0, w: -0.23683816}
-  m_LocalPosition: {x: 1.7437745, y: 0.8000002, z: -1.4523631}
+  m_LocalPosition: {x: -1.27, y: 4.57, z: -1.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4934388148293240}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 20876522904893908}
   movementSettings:
-    ForwardSpeed: 8
+    ForwardSpeed: 4
     BackwardSpeed: 4
     StrafeSpeed: 4
     RunMultiplier: 2

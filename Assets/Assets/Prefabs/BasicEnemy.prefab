@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65607262786580178}
   - component: {fileID: 54218033391599508}
   - component: {fileID: 114090098783928800}
+  - component: {fileID: 114123816941328208}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Enemy
@@ -121,3 +122,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 10
+--- !u!114 &114123816941328208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507362351265008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a0194592b022749a1a11f5bc7a6051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

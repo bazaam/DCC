@@ -19,9 +19,15 @@ public class SpawnEnemy : MonoBehaviour
 
     void Spawn()
     {
-        spawnPosition.x = Random.Range(-32, 32);
+        float rand1 = Random.Range(-64, -40);
+        float rand2 = Random.Range(-64, 64);
+        //if (rand1 > -20f && rand2 > -20f && rand2 < 20f)
+        //    rand1 += 40f;
+        //if (rand2 > -20f && rand1 > -20f && rand1 < 20f)
+        //    rand2 += 40f;
+        spawnPosition.x = rand1;
         spawnPosition.y = 0.5f;
-        spawnPosition.z = Random.Range(-32, 32);
+        spawnPosition.z = rand2;
 
         GameObject newEnemy = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length - 1)], spawnPosition, Quaternion.identity) as GameObject;
         newEnemy.transform.parent = this.transform;
