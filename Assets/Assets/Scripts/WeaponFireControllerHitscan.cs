@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponFireController : MonoBehaviour {
+public class WeaponFireControllerHitscan : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
