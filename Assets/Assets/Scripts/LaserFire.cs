@@ -49,7 +49,14 @@ public class LaserFire : MonoBehaviour
             line.SetPosition(0, ray.origin);
 
             if (Physics.Raycast(ray, out hit, 100))
+            {
                 line.SetPosition(1, hit.point);
+                if (hit.collider.gameObject.tag == "Enemy")
+                {
+                    hit.collider.SendMessageUpwards("ApplyDamage", 100f);
+                }
+
+            }
             else
                 line.SetPosition(1, ray.GetPoint(100));
             
