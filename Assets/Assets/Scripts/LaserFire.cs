@@ -6,6 +6,10 @@ public class LaserFire : MonoBehaviour
 {
 
     LineRenderer line;
+    public GameObject gunTip;
+    public bool continuousFire;
+    public GameObject projectile;
+    public float projectileSpeed;
 
 	void Start ()
     {
@@ -17,8 +21,19 @@ public class LaserFire : MonoBehaviour
     {
 		if(Input.GetButtonDown("Fire1"))
         {
-            StopCoroutine("FireLaser");
-            StartCoroutine("FireLaser");
+            if (continuousFire)
+            {
+                StopCoroutine("FireLaser");
+                StartCoroutine("FireLaser");
+            }
+
+            else
+            {
+                GameObject firedProjectile = Instantiate(projectile, gunTip.transform.position, gunTip.transform.rotation);
+                firedProjectile.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
+
+            }
+
         }
 	}
 
@@ -28,7 +43,7 @@ public class LaserFire : MonoBehaviour
 
         while(Input.GetButton("Fire1"))
         {
-            Ray ray = new Ray(transform.position, transform.forward);
+            Ray ray = new Ray(gunTip.transform.position, gunTip.transform.forward);
             RaycastHit hit;
 
             line.SetPosition(0, ray.origin);
