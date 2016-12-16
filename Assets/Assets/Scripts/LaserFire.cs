@@ -10,6 +10,7 @@ public class LaserFire : MonoBehaviour
     public bool continuousFire;
     public GameObject projectile;
     public float projectileSpeed;
+    public AudioClip laserFireAudio;
 
 	void Start ()
     {
@@ -31,6 +32,8 @@ public class LaserFire : MonoBehaviour
             {
                 GameObject firedProjectile = Instantiate(projectile, gunTip.transform.position, gunTip.transform.rotation);
                 firedProjectile.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed);
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.Play();
 
             }
 
@@ -66,4 +69,5 @@ public class LaserFire : MonoBehaviour
 
         line.enabled = false;
     }
+
 }
