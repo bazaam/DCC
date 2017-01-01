@@ -23,12 +23,14 @@ public class UIManager : MonoBehaviour
 
     public void MusicSliderUpdate(float val)
     {
-        soundManager.SetVolume(val);
+        soundManager.SetMasterVolume(val);
     }
 
     public void MusicToggle(bool val)
     {
+        Debug.Log("Toggle state = ");
+        Debug.Log(val);
         volumeSlider.interactable = val;
-        soundManager.SetVolume(val ? volumeSlider.value : 0f);
+        soundManager.SetMasterVolume(val ? volumeSlider.value : 0f);
     }
 }
