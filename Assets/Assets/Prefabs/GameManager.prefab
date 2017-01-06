@@ -55,6 +55,10 @@ MonoBehaviour:
   wall: {fileID: 100000, guid: ef79aee80324d479f81ab8b5c40e6659, type: 2}
   floor: {fileID: 100000, guid: 04475ebee28244f95abf060fb5601ccc, type: 2}
   entry: {fileID: 1000012420503480, guid: 2fcdd298638c3a94c82d7b0174e5b62e, type: 2}
+  chest: {fileID: 196142, guid: de65714eebd3ee949b739ff8a63350b9, type: 2}
+  resourceA: {fileID: 110326, guid: 920f4ecb5b7754240911d8c562d3d0e1, type: 2}
+  resourceB: {fileID: 147096, guid: 4d481fc361c47d248af6646c5aa0cf34, type: 2}
+  resourceC: {fileID: 193662, guid: aa04a2063dd7a2140b65a3ae2686c21b, type: 2}
 --- !u!114 &114000014038133676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,5 +71,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 100
-  height: 120
+  height: 100
   totalSteps: 1000
+  roomFrequency: 3
+  roomSize: 7
+  chestDensity: 0.0031
+  resourceADensity: 0.0197
+  resourceBDensity: 0.0128
+  resourceCDensity: 0.0065

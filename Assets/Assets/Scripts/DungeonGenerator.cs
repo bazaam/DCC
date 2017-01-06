@@ -14,13 +14,17 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject wall;
     public GameObject floor;
     public GameObject entry;
+    public GameObject chest;
+    public GameObject resourceA;
+    public GameObject resourceB;
+    public GameObject resourceC;
     
 
 
-    void SpawnDungeon(int a, int b, int c, int d, int e)
+    void SpawnDungeon(int width, int height, int totalSteps, int roomFrequency, int roomSize)
     {
 
-        dungeonMap = new DungeonGen.Map(a, b, c, d, e);
+        dungeonMap = new DungeonGen.Map(width, height, totalSteps, roomFrequency, roomSize);
         levelMap = dungeonMap.IntMap;
         int x = 0;
         int y = 0;
@@ -46,6 +50,16 @@ public class DungeonGenerator : MonoBehaviour
         PlayerController.SetLocation(dungeonMap.entry);
 
     }
+    void SpawnDungeonObject(float density, GameObject objectToSpawn, GameObject[] floorTiles)
+    {
+        for (int i = 0; i < (floorTiles.Length * density); ++i)
+        {
+            int spawnTileIndex = Random.Range(0, floorTiles.Length);
+            GameObject spawnTile = floorTiles[spawnTileIndex];
+
+            Instantiate(objectToSpawn, new Vector3(spawnTile.transform.position.x, 0.1f, spawnTile.transform.position.z), objectToSpawn.transform.rotation);
+        }
+    }
 
     public Vector2 GetEntryPoint()
     {
@@ -57,9 +71,20 @@ public class DungeonGenerator : MonoBehaviour
         return dungeonMap.exit;
     }
 
-    public void NewDungeon(int a, int b, int c, int d, int e)
+    public void NewDungeon(int width, int height, int totalSteps, int roomFrequency, int roomSize)
     {
-        SpawnDungeon(a, b, c, d, e);
+        SpawnDungeon(width, height, totalSteps, roomFrequency, roomSize);
+    }
+    
+    public void PopulateDungeon(float chestDensity, float resourceADensity, float resourceBDensity, float resourceCDensity)
+    {
+        GameObject[] floorTiles = GameObject.FindGameObjectsWithTag("floor");
+        Debug.Log(floorTiles.Length);
+
+        SpawnDungeonObject(chestDensity, chest, floorTiles);
+        SpawnDungeonObject(resourceADensity, resourceA, floorTiles);
+        SpawnDungeonObject(resourceBDensity, resourceB, floorTiles);
+        SpawnDungeonObject(resourceCDensity, resourceC, floorTiles);
     }
 
     void InstantiateDungeonTile(int x, int y, int tileType)

@@ -309,10 +309,10 @@ public class DungeonGen : MonoBehaviour {
                             {
                                 for (int l = -1 * (roomsize / 2); l < roomsize / 2+1; l++)
                                 {
-                                    Debug.Log((nextCoord.x + k) + " " + (nextCoord.y + l));
+                                    //Debug.Log((nextCoord.x + k) + " " + (nextCoord.y + l));
                                     if(nextCoord.x+k <=0 || nextCoord.x+k>=xmax-2) { continue; }
                                     if (nextCoord.y +l <= 0 || nextCoord.y+l >= ymax) { continue; }
-                                    Debug.Log((nextCoord.x + k) + " " + (nextCoord.y + l));
+                                    //Debug.Log((nextCoord.x + k) + " " + (nextCoord.y + l));
                                     this.tLList[nextCoord.x+k][nextCoord.y+l].isWall = false;
                                     accessMap[nextCoord.x][nextCoord.y] = 2;
                                 }

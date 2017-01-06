@@ -11,10 +11,17 @@ public class LevelController : MonoBehaviour {
     public int totalSteps;
     public int roomFrequency = 3;
     public int roomSize = 7;
-    public List<int> thisIsADynamicField = new List<int>();
+
+    [Range(0, .05f)]
+    public float chestDensity;
+    [Range(0, .05f)]
+    public float resourceADensity;
+    [Range(0, .05f)]
+    public float resourceBDensity;
+    [Range(0, .05f)]
+    public float resourceCDensity;
 
     
-
 	// Use this for initialization
 	void Start () {
 
@@ -40,6 +47,7 @@ public class LevelController : MonoBehaviour {
         Debug.Log("new level called");
         DungeonGenerator newDungeon = gameObject.GetComponent<DungeonGenerator>();
         newDungeon.NewDungeon(width, height, totalSteps, roomFrequency, roomSize);
+        newDungeon.PopulateDungeon(chestDensity, resourceADensity, resourceBDensity, resourceCDensity);
         Debug.Log("New dungeon spawned");
         
         

@@ -9,6 +9,8 @@ TagManager:
   - EventSystem
   - BaseDestructible
   - Weapon
+  - wall
+  - floor
   layers:
   - Default
   - TransparentFX
