@@ -18,6 +18,8 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject resourceA;
     public GameObject resourceB;
     public GameObject resourceC;
+
+    List<int> tilesWithObjects = new List<int>();
     
 
 
@@ -49,16 +51,6 @@ public class DungeonGenerator : MonoBehaviour
         Debug.Log("Player Found");
         PlayerController.SetLocation(dungeonMap.entry);
 
-    }
-    void SpawnDungeonObject(float density, GameObject objectToSpawn, GameObject[] floorTiles)
-    {
-        for (int i = 0; i < (floorTiles.Length * density); ++i)
-        {
-            int spawnTileIndex = Random.Range(0, floorTiles.Length);
-            GameObject spawnTile = floorTiles[spawnTileIndex];
-
-            Instantiate(objectToSpawn, new Vector3(spawnTile.transform.position.x, 0.1f, spawnTile.transform.position.z), objectToSpawn.transform.rotation);
-        }
     }
 
     public Vector2 GetEntryPoint()
@@ -102,6 +94,53 @@ public class DungeonGenerator : MonoBehaviour
             Instantiate(floor, new Vector3(x, 0, y), Quaternion.identity);
         }
     }
+
+    void SpawnDungeonObject(float density, GameObject objectToSpawn, GameObject[] floorTiles)
+    {
+        bool[] selections = new bool[floorTiles.Length];
+        
+        //List<bool> selections = new List<bool>();
+
+        for (int i = 0; i < floorTiles.Length; ++i)
+        {
+            selections[i] = false;
+        }
+
+
+        //Assuming you want to assign a set number of squares:
+
+        int counter = 0;
+
+        while (counter < (floorTiles.Length * density))
+        {
+            int j = Random.Range(0, floorTiles.Length - 1);
+
+            if (!selections[j])
+            {
+                selections[j] = true;
+                counter++;
+            }
+        }
+
+        for (int i = 0; i < floorTiles.Length; ++i)
+        {
+            if (selections[i])
+            {
+                Instantiate(objectToSpawn, new Vector3(floorTiles[i].transform.position.x, 0.1f, floorTiles[i].transform.position.z), objectToSpawn.transform.rotation);
+
+            }
+        }
+
+
+        //for (int i = 0; i < (floorTiles.Length * density); ++i)
+        //{
+        //    int spawnTileIndex = Random.Range(0, floorTiles.Length);
+        //    GameObject spawnTile = floorTiles[spawnTileIndex];
+
+        //    Instantiate(objectToSpawn, new Vector3(spawnTile.transform.position.x, 0.1f, spawnTile.transform.position.z), objectToSpawn.transform.rotation);
+        //}
+    }
+
 
 
 }

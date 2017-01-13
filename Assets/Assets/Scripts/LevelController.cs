@@ -45,17 +45,14 @@ public class LevelController : MonoBehaviour {
         //Debug.Log("Locating Player");
         ////DungeonGenLibrary.Tile t;
         Debug.Log("new level called");
+
         DungeonGenerator newDungeon = gameObject.GetComponent<DungeonGenerator>();
+
         newDungeon.NewDungeon(width, height, totalSteps, roomFrequency, roomSize);
         newDungeon.PopulateDungeon(chestDensity, resourceADensity, resourceBDensity, resourceCDensity);
+
         Debug.Log("New dungeon spawned");
         
-        
-        
-        
-        
-
-
     }
 
     IEnumerator Respawn(Vector2 startTile)
