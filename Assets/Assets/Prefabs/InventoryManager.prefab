@@ -20,9 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4563061950158688}
   - component: {fileID: 114478800284745688}
+  - component: {fileID: 114721815494959462}
+  - component: {fileID: 114143371161122016}
   m_Layer: 0
   m_Name: InventoryManager
-  m_TagString: Untagged
+  m_TagString: InventoryManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +42,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114143371161122016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373225105204502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd47fa4c6997eb4da0a630b601f8ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chestUI: {fileID: 0}
+  chestItemMinimum: 1
+  chestItemMaximum: 3
+  resourceAMinimum: 15
+  resourceAMaximum: 25
+  resourceBMinimum: 10
+  resourceBMaximum: 20
+  resourceCMinimum: 5
+  resourceCMaximum: 10
+  resourceAText: {fileID: 0}
+  resourceBText: {fileID: 0}
+  resourceCText: {fileID: 0}
 --- !u!114 &114478800284745688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -49,5 +74,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ea4d15b6f145944d844e44dd4b9e68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114721815494959462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373225105204502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5c7171eaccf8540960e62430a58261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

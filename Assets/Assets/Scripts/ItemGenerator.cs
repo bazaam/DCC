@@ -63,11 +63,11 @@ public class ItemGenerator : MonoBehaviour
 		
 	}
 
-    public static ChestManager.ChestItem GenerateItem()
+    public ChestManager.ChestItem GenerateItem()
     {
         ChestManager.ChestItem newItem = new ChestManager.ChestItem();
 
-        newItem.ItemName = new string[3] {itemQualities[Random.Range(0, itemQualities.Length)], itemTypes[Random.Range(0, itemTypes.Length)],
+        newItem.itemName = new string[3] {itemQualities[Random.Range(0, itemQualities.Length)], itemTypes[Random.Range(0, itemTypes.Length)],
             itemProperties[Random.Range(0, itemProperties.Length)]};
 
         return newItem;
@@ -81,6 +81,7 @@ public class ItemGenerator : MonoBehaviour
         public string propertyModifier;
         public string qualityModifier;
     }
+
 
 }
 

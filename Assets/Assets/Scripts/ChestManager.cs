@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChestManager : MonoBehaviour
 {
+    public GameObject chestUI;
+
+    
+
     public int chestItemMinimum;
     public int chestItemMaximum;
 
@@ -14,8 +19,11 @@ public class ChestManager : MonoBehaviour
     public int resourceCMinimum;
     public int resourceCMaximum;
 
-    public ItemGenerator itemGenerator;
+    public Text resourceAText;
+    public Text resourceBText;
+    public Text resourceCText;
 
+    
 
     // Use this for initialization
     void Start ()
@@ -29,50 +37,29 @@ public class ChestManager : MonoBehaviour
 		
 	}
 
-    public void OpenChest()
+    public void OpenChest(int resourceA, int resourceB, int resourceC, List<ChestItem> items)
     {
+        resourceAText.text = resourceA.ToString();
+        resourceBText.text = resourceB.ToString();
+        resourceCText.text = resourceC.ToString();
+
+
+
         //populate with items from chest
-        //enable canvas
+        chestUI.SetActive(true);
         //
     }
 
     public void CloseChest()
     {
-        //disable canvas
+        chestUI.SetActive(false);
         //return changes in chest inventory
     }
 
-    public class ChestInventory 
-    {
-        int quantityResourceA;
-        int quantityResourceB;
-        int quantityResourceC;
-        int numberOfItems;
-        List<ChestItem> itemsInChest = new List<ChestItem>();
-
-        public ChestInventory(int amountA, int amountB, int amountC, int totalItems)
-        {
-            quantityResourceA = amountA;
-            quantityResourceB = amountB;
-            quantityResourceC = amountC;
-            numberOfItems = totalItems;
-            
-            ChestItem newItem = new ChestItem();
-            
-            for (int i = 0; i < numberOfItems; ++i)
-                newItem = ItemGenerator.GenerateItem();
-                itemsInChest.Add(newItem);
-        }
-    }
 
     public class ChestItem
     {
-        private string[] itemName = new string[3];
-        public string[] ItemName
-        {
-            get {return itemName;}
-            set {itemName = value;}
-        }
+        public string[] itemName = new string[3];
 
     }
 

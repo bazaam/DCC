@@ -450,41 +450,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 473384936}
---- !u!1 &564072108 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1373225105204502, guid: cd3e265642e472d44892e068406659e6,
-    type: 2}
-  m_PrefabInternal: {fileID: 2059312657}
---- !u!114 &564072109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564072108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f5c7171eaccf8540960e62430a58261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &564072110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564072108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd47fa4c6997eb4da0a630b601f8ca4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chestItemMinimum: 0
-  chestItemMaximum: 0
-  resourceAMinimum: 0
-  resourceAMaximum: 0
-  resourceBMinimum: 0
-  resourceBMaximum: 0
-  resourceCMinimum: 0
-  resourceCMaximum: 0
 --- !u!1 &564831808
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +461,7 @@ GameObject:
   - component: {fileID: 564831811}
   - component: {fileID: 564831810}
   m_Layer: 5
-  m_Name: amount
+  m_Name: amountC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,7 +540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &908631429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -644,7 +609,7 @@ GameObject:
   - component: {fileID: 924306746}
   - component: {fileID: 924306745}
   m_Layer: 5
-  m_Name: amount
+  m_Name: amountA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1109,7 +1074,7 @@ GameObject:
   - component: {fileID: 1708517614}
   - component: {fileID: 1708517613}
   m_Layer: 5
-  m_Name: amount
+  m_Name: amountB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,6 +1176,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114143371161122016, guid: cd3e265642e472d44892e068406659e6,
+        type: 2}
+      propertyPath: chestUI
+      value: 
+      objectReference: {fileID: 908631428}
+    - target: {fileID: 114143371161122016, guid: cd3e265642e472d44892e068406659e6,
+        type: 2}
+      propertyPath: resourceAText
+      value: 
+      objectReference: {fileID: 924306745}
+    - target: {fileID: 114143371161122016, guid: cd3e265642e472d44892e068406659e6,
+        type: 2}
+      propertyPath: resourceBText
+      value: 
+      objectReference: {fileID: 1708517613}
+    - target: {fileID: 114143371161122016, guid: cd3e265642e472d44892e068406659e6,
+        type: 2}
+      propertyPath: resourceCText
+      value: 
+      objectReference: {fileID: 564831810}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd3e265642e472d44892e068406659e6, type: 2}
   m_IsPrefabParent: 0
