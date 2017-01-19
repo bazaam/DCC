@@ -55,16 +55,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestUI: {fileID: 0}
   chestItemMinimum: 1
-  chestItemMaximum: 3
-  resourceAMinimum: 15
-  resourceAMaximum: 25
+  chestItemMaximum: 4
+  resourceAMinimum: 20
+  resourceAMaximum: 200
   resourceBMinimum: 10
-  resourceBMaximum: 20
-  resourceCMinimum: 5
-  resourceCMaximum: 10
+  resourceBMaximum: 50
+  resourceCMinimum: 1
+  resourceCMaximum: 4
   resourceAText: {fileID: 0}
   resourceBText: {fileID: 0}
   resourceCText: {fileID: 0}
+  chestItemPrefab: {fileID: 1044928857169028, guid: 00937e6b8e4676247bfacde2a3f49c3e,
+    type: 2}
+  chestItemsPanel: {fileID: 0}
 --- !u!114 &114478800284745688
 MonoBehaviour:
   m_ObjectHideFlags: 1

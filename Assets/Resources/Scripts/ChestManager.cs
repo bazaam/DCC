@@ -23,6 +23,8 @@ public class ChestManager : MonoBehaviour
     public Text resourceBText;
     public Text resourceCText;
 
+    public GameObject chestItemPrefab;
+    public Transform chestItemsPanel;
     
 
     // Use this for initialization
@@ -42,6 +44,19 @@ public class ChestManager : MonoBehaviour
         resourceAText.text = resourceA.ToString();
         resourceBText.text = resourceB.ToString();
         resourceCText.text = resourceC.ToString();
+
+        //Debug.Log("The number of items received was");
+        //Debug.Log(items.Count);
+
+        foreach (ChestItem item in items)
+        {
+            GameObject thisChestItem = Instantiate(chestItemPrefab, chestItemsPanel);
+            Debug.Log(item.itemName[1]);
+            string spritePath = "Sprites/" + item.itemName[1];
+            Debug.Log(spritePath);
+            thisChestItem.transform.GetChild(0).GetComponent<Image>().overrideSprite = Resources.Load<Sprite>(spritePath);
+            
+        }
 
 
 

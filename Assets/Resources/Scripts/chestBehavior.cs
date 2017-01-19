@@ -50,11 +50,17 @@ public class chestBehavior : MonoBehaviour {
         resourceC = Random.Range(chestManager.resourceCMinimum, chestManager.resourceCMaximum);
         numberOfItems = Random.Range(chestManager.chestItemMinimum, chestManager.chestItemMaximum);
 
-       
+        //Debug.Log("Intended number of items in this chest");
+        //Debug.Log(numberOfItems);
 
         for (int i = 0; i < numberOfItems; ++i)
+        {
             newItem = itemGenerator.GenerateItem();
             items.Add(newItem);
+        }
+
+        //Debug.Log("The actual number of items is");
+        //Debug.Log(items.Count);
 
 
     }
