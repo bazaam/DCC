@@ -51,11 +51,11 @@ public class ChestManager : MonoBehaviour
         foreach (ChestItem item in items)
         {
             GameObject thisChestItem = Instantiate(chestItemPrefab, chestItemsPanel);
-            Debug.Log(item.itemName[1]);
             string spritePath = "Sprites/" + item.itemName[1];
-            Debug.Log(spritePath);
+            string fullItemName = item.itemName[0] + " " + item.itemName[1] + " of " + item.itemName[2];
+            Debug.Log(fullItemName);
             thisChestItem.transform.GetChild(0).GetComponent<Image>().overrideSprite = Resources.Load<Sprite>(spritePath);
-            
+            thisChestItem.transform.GetChild(1).GetComponent<Text>().text = (fullItemName);
         }
 
 
@@ -68,6 +68,10 @@ public class ChestManager : MonoBehaviour
     public void CloseChest()
     {
         chestUI.SetActive(false);
+        foreach (Transform child in chestItemsPanel)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         //return changes in chest inventory
     }
 
